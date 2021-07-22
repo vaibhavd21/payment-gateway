@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{%  static  'css/style.css'  %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- <script>
+        function autoRefresh() {
+            window.location = window.location.href;
+        }
+        setInterval('autoRefresh()', 2000);
+    </script> -->
+    <!-- {% if successful_submit %}
+    <script>
+        window.onload = function() {
+        if(!window.location.hash) {
+            window.location = window.location + '#loaded';
+            window.location.reload();
+        }
+    }
+    </script>
+    {% endif %}
+
+    {% if create_order %}
+    order created
+    {{order}}
+    {% endif %} -->
+
+
+
+    <header class="topbar">
+        <div class="container">
+            <div class="icons">
+                <a href="#"><i class="bi bi-github"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-envelope"></i></a>
+                <a href="#"><i class="bi bi-phone"></i></a>
+            </div>
+            <div class="stats">
+                <div>
+                    <i class="bi bi-bag-check"></i>
+                    <p>Collection ₹ 500.00</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <header class="hero">
+
+        <div class="container">
+            <form class="form-style-9" method="POST" action="">
+                {% csrf_token %}
+                <h1 style="font-weight: 600; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                    Welcome</h1>
+                <h3 style="font-weight: 700; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                    Thanks for your <span style="color: rgb(102, 102, 236);">solaridity</span> !</h3>
+                <ul>
+                    <li style="margin-top: 1rem;">
+                        <input type="text" id="name" name="name" class="field-style field-full align-none"
+                            placeholder="Name" required />
+                    </li>
+                    <li style="margin-top: 1rem;">
+                        <input type="email" id="email" name="email" class="field-style field-full align-none"
+                            placeholder="Email" required />
+                    </li>
+
+
+                    <li style="margin-top: 1rem; margin-bottom: 1rem;">
+                        <input type="number" id="amount" name="amount" class="field-style field-full align-none"
+                            placeholder="Amount" required />
+                    </li>
+                    <li style="margin-top: 1rem; margin-bottom: 1rem;">
+                        <textarea name="message" id="message" class="field-style"
+                            placeholder="Message(Optional)"></textarea>
+                    </li>
+                    <li style="margin-top: 1rem; margin-bottom: 1rem;">
+                        <input type="submit" value="Contribute Now !" />
+                    </li>
+                </ul>
+                <script>
+                    if (window.history.replaceState) {
+                        window.history.replaceState(null, null, window.location.href);
+                    }
+                </script>
+            </form>
+        </div>
+
+
+        {% if successful_submit %}
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <script>
+            var options = {
+                "key": "rzp_test_oMXZYu4HHFRjsi", // Enter the Key ID generated from the Dashboard
+                "amount": "{{order.amount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                "currency": "INR",
+                "name": "To the Rescue!",
+                "description": "From {{order.notes.name}}",
+                "image": "data:image/jpeg;base64,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",
+                "order_id": "{{order.id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                "callback_url": "success",
+                "prefill": {
+                    "name": "{{order.notes.name}}",
+                    "email": "{{order.notes.email}}",
+                    "contact": ""
+                },
+                "theme": {
+                    "color": "#48ed39"
+                }
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+        </script>
+        {% endif %}
+
+
+    </header>
+    <footer class="footer" style="text-align: center;">
+        <div style="display: flex; justify-content: space-around; padding: 0.4rem;">
+            <h4>Created by <span style="color: chartreuse;">Vaibhav Dubewar</span></h4>
+        </div>
+    </footer>
+</body>
+
+</html>
