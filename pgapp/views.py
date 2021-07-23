@@ -8,6 +8,7 @@ import math
 import razorpay
 # Create your views here.
 from .models import payment 
+from django.db.models import Sum
 
 
 order = None
@@ -22,7 +23,8 @@ client = razorpay.Client(auth=(KEY_ID, KEY_SECRET))
 
 def home(request):
     #action = request.GET.get('action')
-
+    result = payment.objects.all().filter(status = True).aggregate(Sum('amount')) #in dict format "{'amount__sum': 10100}"
+    collection = int(result.get('amount__sum')/100)
 
     # if action == 'create_payment':
     #     #global amount
@@ -63,12 +65,12 @@ def home(request):
         paym.order_id = order.get('id')
         paym.save()
         
-        return render(request,'index.html',{'successful_submit':True,'order':order})
+        return render(request,'index.html',{'successful_submit':True,'order':order,'collection':collection})
 
     
     
     if request.method == 'GET':
-        return render(request,'index.html')
+        return render(request,'index.html',{'collection':collection})
 
 @csrf_exempt
 def success(request):
