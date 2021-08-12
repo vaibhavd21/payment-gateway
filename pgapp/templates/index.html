@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- Our project just needs Font Awesome Free's Solid + Brand files -->
+  <link href="{% static 'fontawesome_free/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'fontawesome_free/css/brands.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'fontawesome_free/css/solid.css' %}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -41,16 +46,12 @@
     <header class="topbar">
         <div class="container">
             <div class="icons">
-                <a href="https://github.com/vaibhavd21"><i class="bi bi-github"></i></a>
-                <a href="https://www.linkedin.com/in/vaibhavdubewar"><i class="bi bi-linkedin"></i></a>
-                <a href="https://instagram.com/vaibhavdubewar21"><i class="bi bi-instagram"></i></a>
-                <a href="mailto:vaibhavdubewar28800@gmail.com"><i class="bi bi-envelope"></i></a>
-                <a href="tel:+917020058762"><i class="bi bi-phone"></i></a>
+                <P style="font-size: 24px; padding-top: 10px;"><i class="bi bi-bookmark-heart-fill"></i> Salvation Army</P>
             </div>
             <div class="stats">
                 <div>
-                    <i class="bi bi-bag-check"></i>
-                    <p>Collection ₹ {{collection}}</p>
+                    <i class="bi bi-currency-exchange"></i>
+                    <p>Total Donation $ {{collection}}</p>
                 </div>
             </div>
         </div>
@@ -65,7 +66,7 @@
                 <h1 style="font-weight: 600; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
                     Welcome</h1>
                 <h3 style="font-weight: 700; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-                    Thanks for your <span style="color: rgb(102, 102, 236);">solaridity</span> !</h3>
+                    Thanks for your <span style="color: #7952B3;">solaridity</span> !</h3>
                 <ul>
                     <li style="margin-top: 1rem;">
                         <input type="text" id="name" name="name" class="field-style field-full align-none"
@@ -95,6 +96,7 @@
                     }
                 </script>
             </form>
+            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_0cvczw8l.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay></lottie-player>
         </div>
 
 
@@ -126,11 +128,44 @@
 
 
     </header>
-    <footer class="footer" style="text-align: center;">
-        <div style="display: flex; justify-content: space-around; padding: 0.4rem;">
-            <h4>Created by <span style="color: chartreuse;">Vaibhav Dubewar</span></h4>
+    <!-- Footer -->
+    <footer class="bg-light text-center text-white">
+        <div class="container p-4 pb-0">
+          <section class="mb-4">
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #dd4b39;"
+              href="vaibhavdubewar28800@gmail.com"
+              role="button"
+              ><i class="bi bi-google"></i></a>
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #ac2bac;"
+              href="https://www.instagram.com/vaibhavdubewar21/"
+              role="button"
+              ><i class="bi bi-instagram"></i></a>
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #0082ca;"
+              href="https://www.linkedin.com/in/vaibhavdubewar/"
+              role="button"
+              ><i class="bi bi-linkedin"></i></a>
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #333333;"
+              href="https://github.com/vaibhavd21"
+              role="button"
+              ><i class="bi bi-github"></i></a>
+          </section>
         </div>
-    </footer>
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: #333333;">
+          © 2020 Copyright:
+          <a class="text-white" href="https://www.linkedin.com/in/vaibhavdubewar/">Vaibhav Dubewar</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
 </body>
 
 </html>

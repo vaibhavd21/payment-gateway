@@ -4,13 +4,13 @@ $check-length: 36px; */
 html,
 body {
   height: 100%;
+  background-color: aliceblue;
 }
 
 body {
-  /* align-items: center; */
-  background-color: #35297B;
-  /*display: flex; 
-  justify-content: center; */
+  /* /* align-items: center; */
+  /* display: flex; 
+  justify-content: center; */ 
   vertical-align: middle;
 }
 

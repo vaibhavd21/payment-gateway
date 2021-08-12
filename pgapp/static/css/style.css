@@ -27,6 +27,7 @@ body{
     width: 100%;
     padding: 0 15px;
     margin: 0 auto;
+    margin-left: 200px;
 }
 
 @media (min-width:576px){
@@ -105,7 +106,7 @@ header.hero {
   height: 620px;
   /* filter: blur(8px);
   -webkit-filter: blur(8px); */
-  background: url("../../static/main.jfif") top right no-repeat;
+  /* background: url("../../static") top right no-repeat; */
   background-size: cover;
   position: relative;
 }
